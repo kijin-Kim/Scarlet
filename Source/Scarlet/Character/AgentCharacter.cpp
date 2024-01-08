@@ -10,7 +10,7 @@
 #include "EnhancedInputSubsystems.h"
 #include "InputActionValue.h"
 #include "InputMappingContext.h"
-#include "Scarlet/Scarlet.h"
+#include "Scarlet/Core/Scarlet.h"
 
 
 //////////////////////////////////////////////////////////////////////////
