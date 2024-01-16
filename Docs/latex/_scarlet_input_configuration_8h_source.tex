@@ -1,0 +1,36 @@
+\doxysection{Scarlet\+Input\+Configuration.\+h}
+\hypertarget{_scarlet_input_configuration_8h_source}{}\label{_scarlet_input_configuration_8h_source}\index{C:/Dev/Scarlet/Source/Scarlet/Core/Input/ScarletInputConfiguration.h@{C:/Dev/Scarlet/Source/Scarlet/Core/Input/ScarletInputConfiguration.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ Fill\ out\ your\ copyright\ notice\ in\ the\ Description\ page\ of\ Project\ Settings.}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}CoreMinimal.h"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}GameplayTagContainer.h"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}Engine/DataAsset.h"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}ScarletInputConfiguration.generated.h"{}}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{class\ }UInputAction;}
+\DoxyCodeLine{00020\ USTRUCT(BlueprintType)}
+\DoxyCodeLine{00021\ struct\ \mbox{\hyperlink{struct_f_scarlet_input_tag_mapping}{FScarletInputTagMapping}}}
+\DoxyCodeLine{00022\ \{}
+\DoxyCodeLine{00023\ \ \ \ \ GENERATED\_BODY()}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \ \ UPROPERTY(EditDefaultsOnly)}
+\DoxyCodeLine{00026\ \ \ \ \ TObjectPtr<UInputAction>\ InputAction;}
+\DoxyCodeLine{00027\ \ \ \ \ UPROPERTY(EditDefaultsOnly)}
+\DoxyCodeLine{00028\ \ \ \ \ FGameplayTag\ InputTag;}
+\DoxyCodeLine{00029\ \};}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00037\ UCLASS()}
+\DoxyCodeLine{00038\ class\ SCARLET\_API\ \mbox{\hyperlink{class_u_scarlet_input_configuration}{UScarletInputConfiguration}}\ :\ public\ UDataAsset}
+\DoxyCodeLine{00039\ \{}
+\DoxyCodeLine{00040\ \ \ \ \ GENERATED\_BODY()}
+\DoxyCodeLine{00041\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00042\ \ \ \ \ UPROPERTY(EditDefaultsOnly,\ meta\ =\ (TitleProperty\ =\ \textcolor{stringliteral}{"{}InputTag"{}}))}
+\DoxyCodeLine{00043\ \ \ \ \ TArray<FScarletInputTagMapping>\ InputTagMappings;}
+\DoxyCodeLine{00044\ \};}
+
+\end{DoxyCode}

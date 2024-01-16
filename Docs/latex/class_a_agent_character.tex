@@ -1,0 +1,71 @@
+\doxysection{AAgent\+Character Class Reference}
+\hypertarget{class_a_agent_character}{}\label{class_a_agent_character}\index{AAgentCharacter@{AAgentCharacter}}
+
+
+게임 내 인간 형태의 Agent의 Base class  
+
+
+
+
+{\ttfamily \#include $<$Agent\+Character.\+h$>$}
+
+
+
+Inheritance diagram for AAgent\+Character\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=227pt]{class_a_agent_character__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for AAgent\+Character\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=227pt]{class_a_agent_character__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_a_agent_character_a0604c6e76fa228c9c5cdce9b6cbc1980}\label{class_a_agent_character_a0604c6e76fa228c9c5cdce9b6cbc1980} 
+virtual void {\bfseries On\+Construction} (const FTransform \&Transform) override
+\item 
+\Hypertarget{class_a_agent_character_a88b74e9b8fd316f14343c9103cb3b79c}\label{class_a_agent_character_a88b74e9b8fd316f14343c9103cb3b79c} 
+void {\bfseries Move} (const FInput\+Action\+Value \&Value)
+\item 
+\Hypertarget{class_a_agent_character_a3ed87b89a861283937dc11ad30ee7cc2}\label{class_a_agent_character_a3ed87b89a861283937dc11ad30ee7cc2} 
+void {\bfseries Look} (const FInput\+Action\+Value \&Value)
+\item 
+\Hypertarget{class_a_agent_character_a0b920cc2cec8c8bb782d54165b46575c}\label{class_a_agent_character_a0b920cc2cec8c8bb782d54165b46575c} 
+virtual void {\bfseries Setup\+Player\+Input\+Component} (class UInput\+Component \texorpdfstring{$\ast$}{*}Player\+Input\+Component) override
+\item 
+\Hypertarget{class_a_agent_character_a1049817d41016aab2a14f4c8ebbeae06}\label{class_a_agent_character_a1049817d41016aab2a14f4c8ebbeae06} 
+virtual void {\bfseries Begin\+Play} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_a_agent_character_ab195cf86ddb211618f4a82c5f67cdda3}\label{class_a_agent_character_ab195cf86ddb211618f4a82c5f67cdda3} 
+UInput\+Action \texorpdfstring{$\ast$}{*} {\bfseries Jump\+Action}
+\item 
+\Hypertarget{class_a_agent_character_ad533f8a73946827e319415c3f7819864}\label{class_a_agent_character_ad533f8a73946827e319415c3f7819864} 
+UInput\+Action \texorpdfstring{$\ast$}{*} {\bfseries Move\+Action}
+\item 
+\Hypertarget{class_a_agent_character_a67c4f2a1b39a3ce602aef6cacb912f2a}\label{class_a_agent_character_a67c4f2a1b39a3ce602aef6cacb912f2a} 
+UInput\+Action \texorpdfstring{$\ast$}{*} {\bfseries Look\+Action}
+\item 
+\Hypertarget{class_a_agent_character_ad7c64bb37f6c9e24d080d2692d4431ce}\label{class_a_agent_character_ad7c64bb37f6c9e24d080d2692d4431ce} 
+UInput\+Mapping\+Context \texorpdfstring{$\ast$}{*} {\bfseries Default\+Mapping\+Context}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+게임 내 인간 형태의 Agent의 Base class 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Dev/\+Scarlet/\+Source/\+Scarlet/\+Character/Agent\+Character.\+h\item 
+C\+:/\+Dev/\+Scarlet/\+Source/\+Scarlet/\+Character/Agent\+Character.\+cpp\end{DoxyCompactItemize}

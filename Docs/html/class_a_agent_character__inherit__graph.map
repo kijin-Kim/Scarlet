@@ -1,0 +1,7 @@
+<map id="AAgentCharacter" name="AAgentCharacter">
+<area shape="rect" id="Node000001" title="게임 내 인간 형태의 Agent의 Base class" alt="" coords="5,123,201,363"/>
+<area shape="rect" id="Node000003" href="$class_a_agent_player_character.html" title=" " alt="" coords="19,411,187,523"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="106,378,106,411,101,411,101,378"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="65,5,142,75"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="106,90,106,123,101,123,101,90"/>
+</map>

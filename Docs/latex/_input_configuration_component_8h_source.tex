@@ -1,0 +1,39 @@
+\doxysection{Input\+Configuration\+Component.\+h}
+\hypertarget{_input_configuration_component_8h_source}{}\label{_input_configuration_component_8h_source}\index{C:/Dev/Scarlet/Source/Scarlet/Core/Input/InputConfigurationComponent.h@{C:/Dev/Scarlet/Source/Scarlet/Core/Input/InputConfigurationComponent.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ Fill\ out\ your\ copyright\ notice\ in\ the\ Description\ page\ of\ Project\ Settings.}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}CoreMinimal.h"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}Components/ActorComponent.h"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}InputConfigurationComponent.generated.h"{}}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{class\ }UScarletInputConfiguration;}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00018\ UCLASS(ClassGroup=(Custom),\ meta=(BlueprintSpawnableComponent))}
+\DoxyCodeLine{00019\ \textcolor{keyword}{class\ }SCARLET\_API\ \mbox{\hyperlink{class_u_input_configuration_component}{UInputConfigurationComponent}}\ :\ \textcolor{keyword}{public}\ UActorComponent}
+\DoxyCodeLine{00020\ \{}
+\DoxyCodeLine{00021\ \ \ \ \ GENERATED\_BODY()}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ public:}
+\DoxyCodeLine{00024\ \ \ \ \ \mbox{\hyperlink{class_u_input_configuration_component}{UInputConfigurationComponent}}();}
+\DoxyCodeLine{00025\ \ \ \ \ }
+\DoxyCodeLine{00026\ \ \ \ \ virtual\ \textcolor{keywordtype}{void}\ InitializeComponent()\ override;}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ private:}
+\DoxyCodeLine{00029\ \ \ \ \ UFUNCTION()}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{void}\ OnOwnerCharacterControllerChanged(APawn*\ Pawn,\ AController*\ OldController,\ AController*\ NewController);}
+\DoxyCodeLine{00031\ \ \ \ \ }
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ public:}
+\DoxyCodeLine{00035\ \ \ \ \ UPROPERTY(EditDefaultsOnly)}
+\DoxyCodeLine{00036\ \ \ \ \ ACharacter*\ CharacterOwner;}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ \ \ }
+\DoxyCodeLine{00040\ \};}
+
+\end{DoxyCode}

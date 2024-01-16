@@ -1,0 +1,33 @@
+\doxysection{Agent\+Player\+Character.\+h}
+\hypertarget{_agent_player_character_8h_source}{}\label{_agent_player_character_8h_source}\index{C:/Dev/Scarlet/Source/Scarlet/Character/AgentPlayerCharacter.h@{C:/Dev/Scarlet/Source/Scarlet/Character/AgentPlayerCharacter.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ Fill\ out\ your\ copyright\ notice\ in\ the\ Description\ page\ of\ Project\ Settings.}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}CoreMinimal.h"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}AgentCharacter.h"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}AgentPlayerCharacter.generated.h"{}}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_u_input_configuration_component}{UInputConfigurationComponent}};}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ UCLASS()}
+\DoxyCodeLine{00012\ class\ SCARLET\_API\ \mbox{\hyperlink{class_a_agent_player_character}{AAgentPlayerCharacter}}\ :\ public\ \mbox{\hyperlink{class_a_agent_character}{AAgentCharacter}}}
+\DoxyCodeLine{00013\ \{}
+\DoxyCodeLine{00014\ \ \ \ \ GENERATED\_BODY()}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00017\ \ \ \ \ \mbox{\hyperlink{class_a_agent_player_character}{AAgentPlayerCharacter}}();}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00021\ \ \ \ \ UPROPERTY(VisibleAnywhere,\ BlueprintReadOnly)}
+\DoxyCodeLine{00022\ \ \ \ \ TObjectPtr<USpringArmComponent>\ SpringArm;}
+\DoxyCodeLine{00023\ \ \ \ \ UPROPERTY(VisibleAnywhere,\ BlueprintReadOnly)}
+\DoxyCodeLine{00024\ \ \ \ \ TObjectPtr<UCameraComponent>\ Camera;}
+\DoxyCodeLine{00025\ \ \ \ \ UPROPERTY(VisibleAnywhere,\ BlueprintReadOnly)}
+\DoxyCodeLine{00026\ \ \ \ \ TObjectPtr<UInputConfigurationComponent>\ InputConfiguration;}
+\DoxyCodeLine{00027\ \};}
+
+\end{DoxyCode}

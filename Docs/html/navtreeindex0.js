@@ -1,0 +1,26 @@
+var NAVTREEINDEX0 =
+{
+"_agent_character_8h_source.html":[2,0,0,0,0,0],
+"_agent_player_character_8h_source.html":[2,0,0,0,0,1],
+"_input_configuration_component_8h_source.html":[2,0,0,0,1,0,0],
+"_scarlet_8h_source.html":[2,0,0,0,1,1],
+"_scarlet_game_mode_8h_source.html":[2,0,0,0,1,2],
+"_scarlet_native_gameplay_tags_8h_source.html":[2,0,0,0,1,3],
+"_xEC_x9E_x85_xEB_xA0_xA5_xEC_x8B_x9C_xEC_x8A_xA4_xED_x85_x9C.html":[0],
+"annotated.html":[1,0],
+"class_a_agent_character.html":[1,0,0],
+"class_a_agent_player_character.html":[1,0,1],
+"class_a_scarlet_game_mode.html":[1,0,2],
+"class_scarlet.html":[1,0,3],
+"class_u_input_configuration_component.html":[1,0,4],
+"classes.html":[1,1],
+"dir_1da35300642f5f38bacb73abbd0f0d21.html":[2,0,0,0,1],
+"dir_466866037e7502124fbbf1cc8c100e44.html":[2,0,0,0,1,0],
+"dir_6a1470a96a054b83039e41aa1416d0c4.html":[2,0,0,0],
+"dir_74080a7ff6f77a3dbfc4b20bf63a751a.html":[2,0,0,0,0],
+"dir_74389ed8173ad57b461b9d623a1f3867.html":[2,0,0],
+"files.html":[2,0],
+"hierarchy.html":[1,2],
+"index.html":[],
+"pages.html":[]
+};
