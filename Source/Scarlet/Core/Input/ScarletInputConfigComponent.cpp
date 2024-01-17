@@ -77,13 +77,11 @@ void UScarletInputConfigComponent::OnInputActionTriggered(const FInputActionValu
 	{
 		CharacterOwner->Jump();
 	}
-
+	
 	if(UScarletStateMachineComponent* StateMachine = CharacterOwner->GetComponentByClass<UScarletStateMachineComponent>())
 	{
 		StateMachine->DispatchEvent(InputTag);
 	}
-	
-	
 }
 
 void UScarletInputConfigComponent::Move(const FInputActionValue& Value)

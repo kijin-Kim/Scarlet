@@ -8,7 +8,7 @@ void UScarletStateMachineState::OnEnter_Implementation()
 {
 }
 
-void UScarletStateMachineState::OnTick_Implementation()
+void UScarletStateMachineState::OnTick_Implementation(float DeltaTime)
 {
 }
 

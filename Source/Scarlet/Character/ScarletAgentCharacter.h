@@ -21,6 +21,8 @@ public:
 	virtual void OnConstruction(const FTransform& Transform) override;
 	virtual void Tick(float DeltaSeconds) override;
 
+	
+
 public:
 	UPROPERTY(EditAnywhere)
 	float RunSpeedRate = 1.0f;
@@ -28,6 +30,8 @@ public:
 	float WalkSpeedRate = 0.3f;
 	UPROPERTY(EditAnywhere)
 	float RunThreshold = 0.9f;
+
+
 
 private:
 	float DesiredSpeed = 0.0f;

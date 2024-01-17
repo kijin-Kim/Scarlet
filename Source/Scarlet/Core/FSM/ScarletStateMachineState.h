@@ -17,7 +17,7 @@ public:
 	UFUNCTION(BlueprintNativeEvent)
 	void OnEnter();
 	UFUNCTION(BlueprintNativeEvent)
-	void OnTick();
+	void OnTick(float DeltaTime);
 	UFUNCTION(BlueprintNativeEvent)
 	void OnExit();
 	

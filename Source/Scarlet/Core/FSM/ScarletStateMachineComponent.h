@@ -25,21 +25,11 @@ public:
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 	void DispatchEvent(FGameplayTag EventTag);
 
-
-private:
-	void EnterNewState(TSubclassOf<UScarletStateMachineState> NewStateClass);
-	void BindTransitionEvents(TSubclassOf<UScarletStateMachineState> NewStateClass);
-	
-
 public:
-	UPROPERTY(EditDefaultsOnly)
-	TObjectPtr<UScarletStateMachine> StateMachine;
-	/**
-	 * 현재 상태의 인스턴스
-	 */
-	UPROPERTY()
-	TObjectPtr<UScarletStateMachineState> CurrentState;
+	UPROPERTY(EditAnywhere)
+	TArray<TSubclassOf<UScarletStateMachine>> StateMachineClasses;
 
 private:
-	TMap<FGameplayTag, FOnTransitionEventSignature> OnTransitionEventDelegates;
+	UPROPERTY()
+	TArray<TObjectPtr<UScarletStateMachine>> StateMachines;
 };

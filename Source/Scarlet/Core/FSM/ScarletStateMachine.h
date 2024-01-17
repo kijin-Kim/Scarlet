@@ -4,7 +4,6 @@
 
 #include "CoreMinimal.h"
 #include "GameplayTagContainer.h"
-#include "Engine/DataAsset.h"
 #include "ScarletStateMachine.generated.h"
 
 class UScarletStateMachineState;
@@ -17,9 +16,9 @@ struct FScarletStateMachineTransitionEntry
 {
 	GENERATED_BODY()
 
-	UPROPERTY(EditDefaultsOnly)
+	UPROPERTY(EditAnywhere)
 	FGameplayTag TransitionEvent;
-	UPROPERTY(EditDefaultsOnly)
+	UPROPERTY(EditAnywhere)
 	TSubclassOf<UScarletStateMachineState> TransitionStateClass;
 };
 
@@ -28,26 +27,39 @@ struct FScarletStateMachineTransitionContainer
 {
 	GENERATED_BODY()
 
-	UPROPERTY(EditDefaultsOnly, meta = (DisplayName = "Transitions", TitleProperty = "TransitionStateClass"))
+	UPROPERTY(EditAnywhere, meta = (DisplayName = "Transitions", TitleProperty = "TransitionStateClass"))
 	TArray<FScarletStateMachineTransitionEntry> StateMachineTransitionEntries;
 };
 
+DECLARE_MULTICAST_DELEGATE(FOnTransitionEventSignature)
 
-UCLASS()
-class SCARLET_API UScarletStateMachine : public UDataAsset
+
+UCLASS(BlueprintType, Blueprintable)
+class SCARLET_API UScarletStateMachine : public UObject
 {
 	GENERATED_BODY()
+
+public:
+	void OnBeginPlay();
+	void OnTick(float DeltaTime);
+	void DispatchEvent(FGameplayTag EventTag);
+	void EnterNewState(TSubclassOf<UScarletStateMachineState> NewStateClass);
+	void BindTransitionEvents(TSubclassOf<UScarletStateMachineState> NewStateClass);
 
 public:
 	/**
 	 * @brief 상태머신의 시작 상태
 	 */
-	UPROPERTY(EditDefaultsOnly)
+	UPROPERTY(EditAnywhere)
 	TSubclassOf<UScarletStateMachineState> RootStateClass;
-
 	/**
 	 * @brief 상태머신의 상태와 전환 조건
 	 */
-	UPROPERTY(EditDefaultsOnly)
+	UPROPERTY(EditAnywhere)
 	TMap<TSubclassOf<UScarletStateMachineState>, FScarletStateMachineTransitionContainer> States;
+
+private:
+	UPROPERTY()
+	TObjectPtr<UScarletStateMachineState> CurrentState;
+	TMap<FGameplayTag, FOnTransitionEventSignature> OnTransitionEventDelegates;
 };
