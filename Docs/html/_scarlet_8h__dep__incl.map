@@ -1,7 +1,7 @@
 <map id="C:/Dev/Scarlet/Source/Scarlet/Core/Scarlet.h" name="C:/Dev/Scarlet/Source/Scarlet/Core/Scarlet.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="166,5,319,48"/>
-<area shape="rect" id="Node000002" href="$_agent_character_8cpp.html" title=" " alt="" coords="5,96,251,139"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="206,60,156,98,153,93,203,55"/>
-<area shape="rect" id="Node000003" href="$_scarlet_8cpp.html" title=" " alt="" coords="275,96,442,139"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="283,55,333,93,330,98,280,60"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="137,5,290,48"/>
+<area shape="rect" id="Node000002" href="$_scarlet_agent_character_8cpp.html" title=" " alt="" coords="5,96,211,155"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="181,61,141,98,137,94,178,57"/>
+<area shape="rect" id="Node000003" href="$_scarlet_8cpp.html" title=" " alt="" coords="235,104,402,147"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="249,57,298,101,294,105,245,60"/>
 </map>

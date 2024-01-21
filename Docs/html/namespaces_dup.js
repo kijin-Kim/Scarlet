@@ -1,11 +1,11 @@
 var namespaces_dup =
 [
-    [ "ScarletNativeGameplayTags", "namespace_scarlet_native_gameplay_tags.html", [
-      [ "UE_DECLARE_GAMEPLAY_TAG_EXTERN", "namespace_scarlet_native_gameplay_tags.html#aa3855a4d20fff27379b904e337a23865", null ],
-      [ "UE_DECLARE_GAMEPLAY_TAG_EXTERN", "namespace_scarlet_native_gameplay_tags.html#a6fcab1e523f66004e80a0cc2b2eb0c42", null ],
-      [ "UE_DECLARE_GAMEPLAY_TAG_EXTERN", "namespace_scarlet_native_gameplay_tags.html#a8f7d630a3525516c9a575200d3df6142", null ],
-      [ "UE_DEFINE_GAMEPLAY_TAG", "namespace_scarlet_native_gameplay_tags.html#a59f8e95df7c585f0c244cb37842a2d08", null ],
-      [ "UE_DEFINE_GAMEPLAY_TAG", "namespace_scarlet_native_gameplay_tags.html#aa13ae0730439bd813c9d67423ca1384f", null ],
-      [ "UE_DEFINE_GAMEPLAY_TAG", "namespace_scarlet_native_gameplay_tags.html#ae57603f52cdda7bcd0d68928e3cb70a8", null ]
+    [ "ScarletNativeInputTags", "namespace_scarlet_native_input_tags.html", [
+      [ "UE_DECLARE_GAMEPLAY_TAG_EXTERN", "namespace_scarlet_native_input_tags.html#aca242d51968ca4e5e63c98af8fccba87", null ],
+      [ "UE_DECLARE_GAMEPLAY_TAG_EXTERN", "namespace_scarlet_native_input_tags.html#abd04ecdaec9ce29e739a7921dab91bd3", null ],
+      [ "UE_DECLARE_GAMEPLAY_TAG_EXTERN", "namespace_scarlet_native_input_tags.html#aa7194d7e3036043f09329c55160a28a9", null ],
+      [ "UE_DEFINE_GAMEPLAY_TAG", "namespace_scarlet_native_input_tags.html#a0ebb13f2712ce279afcff89be67b4522", null ],
+      [ "UE_DEFINE_GAMEPLAY_TAG", "namespace_scarlet_native_input_tags.html#a1881cce793463fe37a548d2e0889283a", null ],
+      [ "UE_DEFINE_GAMEPLAY_TAG", "namespace_scarlet_native_input_tags.html#a8810187e5e14c7bb15969d22c53d61e4", null ]
     ] ]
 ];

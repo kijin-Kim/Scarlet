@@ -3,31 +3,59 @@
 
 #include "ScarletStateMachine.h"
 
-#include "ScarletStateMachineState.h"
+#include "ScarletState.h"
+#include "ScarletStateMachineComponent.h"
+#include "Condition/ScarletTransitionCondition.h"
+#include "Engine/Canvas.h"
 
 
 void UScarletStateMachine::OnBeginPlay()
 {
-	if (RootStateClass)
+	check(RootStateClass);
+	StateMachineComponent = GetStateMachineComponent();
+	check(StateMachineComponent);
+	EnterNewState(RootStateClass);
+}
+
+void UScarletStateMachine::TryTransition(const FScarletStateMachineTransitionEntry& Entry)
+{
+	if (Entry.TransitionConditions.IsEmpty())
 	{
-		EnterNewState(RootStateClass);
+		EnterNewState(Entry.TransitionStateClass);
+		return;
+	}
+
+	for (UScarletTransitionCondition* TransitionCondition : Entry.TransitionConditions)
+	{
+		if (TransitionCondition && TransitionCondition->Test(this))
+		{
+			EnterNewState(Entry.TransitionStateClass);
+			return;
+		}
 	}
 }
 
 void UScarletStateMachine::OnTick(float DeltaTime)
 {
-	if (CurrentState)
+	check(CurrentState);
+	CurrentState->OnTick(DeltaTime);
+
+
+	if (CurrentStateTransitions)
 	{
-		CurrentState->OnTick(DeltaTime);
+		for (const FScarletStateMachineTransitionEntry& Entry : CurrentStateTransitions->TransitionEntries)
+		{
+			if (Entry.TransitionStateClass && Entry.TransitionTestPolicy == ETransitionTestPolicy::OnTick)
+			{
+				TryTransition(Entry);
+			}
+		}
 	}
 }
 
 void UScarletStateMachine::DispatchEvent(FGameplayTag EventTag)
 {
-	if (!EventTag.IsValid())
-	{
-		return;
-	}
+	check(EventTag.IsValid());
 
 	const FOnTransitionEventSignature* Delegate = OnTransitionEventDelegates.Find(EventTag);
 	if (Delegate && Delegate->IsBound())
@@ -36,40 +64,56 @@ void UScarletStateMachine::DispatchEvent(FGameplayTag EventTag)
 	}
 }
 
-void UScarletStateMachine::EnterNewState(TSubclassOf<UScarletStateMachineState> NewStateClass)
+UScarletStateMachineComponent* UScarletStateMachine::GetStateMachineComponent() const
 {
-	if (!NewStateClass)
-	{
-		return;
-	}
+	return StateMachineComponent ? StateMachineComponent : Cast<UScarletStateMachineComponent>(GetOuter());
+}
 
+void UScarletStateMachine::OnShowDebugInfo(AHUD* HUD, UCanvas* Canvas, const FDebugDisplayInfo& DebugDisplay, float& X, float& Arg)
+{
+	FDisplayDebugManager& DisplayDebugManager = Canvas->DisplayDebugManager;
+	const FColor DrawColor = FColor::White;
+	DisplayDebugManager.SetDrawColor(DrawColor);
+
+	DisplayDebugManager.DrawString(FString::Printf(TEXT("%s"), *GetNameSafe(this)), X);
+
+	X += 4.0f;
+	DisplayDebugManager.DrawString(FString::Printf(TEXT("Current State: %s"), *GetNameSafe(CurrentState)), X);
+	X -= 4.0f;
+}
+
+void UScarletStateMachine::EnterNewState(TSubclassOf<UScarletState> NewStateClass)
+{
 	if (CurrentState)
 	{
 		CurrentState->OnExit();
+
+		StateMachineComponent->RemoveTag(CurrentState->StateTag);
 	}
-	CurrentState = NewObject<UScarletStateMachineState>(this, NewStateClass);
+	CurrentState = NewObject<UScarletState>(this, NewStateClass);
+	StateMachineComponent->AddTag(CurrentState->StateTag);
 	CurrentState->OnEnter();
-
-
 	BindTransitionEvents(NewStateClass);
 }
 
-void UScarletStateMachine::BindTransitionEvents(TSubclassOf<UScarletStateMachineState> NewStateClass)
+void UScarletStateMachine::BindTransitionEvents(TSubclassOf<UScarletState> StateClass)
 {
 	OnTransitionEventDelegates.Empty();
-	FScarletStateMachineTransitionContainer* Transitions = States.Find(NewStateClass);
+	FScarletTransitionContainer* Transitions = States.Find(StateClass); // 전달된 상태의 클래스로부터 새롭게 전환될 상태가 없을 경우
 	if (!Transitions)
 	{
 		return;
 	}
 
-	for (const auto [EventTag, TransitionTargetState] : Transitions->StateMachineTransitionEntries)
+	CurrentStateTransitions = Transitions;
+
+	for (FScarletStateMachineTransitionEntry& Entry : CurrentStateTransitions->TransitionEntries)
 	{
-		if (EventTag.IsValid() && TransitionTargetState)
+		if (Entry.TransitionStateClass && Entry.TransitionTestPolicy == ETransitionTestPolicy::OnEvent && Entry.TransitionEvent.IsValid())
 		{
-			OnTransitionEventDelegates.FindOrAdd(EventTag).AddLambda([this, TransitionTargetState]()
+			OnTransitionEventDelegates.FindOrAdd(Entry.TransitionEvent).AddLambda([this, &Entry]()
 			{
-				EnterNewState(TransitionTargetState);
+				TryTransition(Entry);
 			});
 		}
 	}

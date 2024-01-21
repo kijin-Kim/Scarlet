@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['scarletnativegameplaytags_0',['ScarletNativeGameplayTags',['../namespace_scarlet_native_gameplay_tags.html',1,'']]]
+  ['scarletnativeinputtags_0',['ScarletNativeInputTags',['../namespace_scarlet_native_input_tags.html',1,'']]]
 ];
