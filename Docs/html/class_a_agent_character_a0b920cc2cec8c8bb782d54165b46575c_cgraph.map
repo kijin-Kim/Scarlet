@@ -1,7 +1,0 @@
-<map id="AAgentCharacter::SetupPlayerInputComponent" name="AAgentCharacter::SetupPlayerInputComponent">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,23,205,65"/>
-<area shape="rect" id="Node000002" href="$class_a_agent_character.html#a3ed87b89a861283937dc11ad30ee7cc2" title=" " alt="" coords="254,5,410,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="205,30,238,26,238,32,206,35"/>
-<area shape="rect" id="Node000003" href="$class_a_agent_character.html#a88b74e9b8fd316f14343c9103cb3b79c" title=" " alt="" coords="253,56,411,83"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="206,53,237,56,237,61,205,58"/>
-</map>
