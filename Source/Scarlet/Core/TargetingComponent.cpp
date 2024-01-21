@@ -36,11 +36,13 @@ void UTargetingComponent::TickComponent(float DeltaTime, ELevelTick TickType, FA
 	}
 
 	const FRotator LookAtRotation = UKismetMathLibrary::FindLookAtRotation(OwnerCamera->GetComponentLocation(), TargetedActor->GetActorLocation());
-	const FRotator NewRotation = FMath::RInterpTo(PawnOwner->GetController()->GetControlRotation(), LookAtRotation, GetWorld()->GetTimeSeconds(),
-	                                              3.0f);
+	const FRotator NewRotation = FMath::RInterpTo(PawnOwner->GetController()->GetControlRotation(), LookAtRotation, GetWorld()->GetDeltaSeconds(),
+	                                              15.0f);
 	PawnOwner->GetController()->SetControlRotation({0.0f, NewRotation.Yaw, 0.0f});
-	const float DeltaPitch = FMath::Abs(NewRotation.Pitch);
+	const float DeltaPitch = FMath::Abs(LookAtRotation.Pitch);
 	OwnerSpringArm->TargetArmLength = BaseTargetArmLength + DeltaPitch * 20.0f;
+
+	
 	DrawDebugSphere(GetWorld(), TargetedActor->GetActorLocation(), 100.0f, 12, FColor::Yellow);
 }
 
@@ -74,7 +76,7 @@ void UTargetingComponent::CalculateTargetActor()
 				const TArray<AActor*> ActorsToIgnore;
 				UKismetSystemLibrary::SphereTraceSingle(this, OwnerCamera->GetComponentLocation(), Candidate->GetActorLocation(), 50.0f,
 				                                        TraceTypeQuery1,
-				                                        false, ActorsToIgnore, EDrawDebugTrace::ForOneFrame, HitResult, true);
+				                                        false, ActorsToIgnore, EDrawDebugTrace::None, HitResult, true);
 
 				
 				if (HitResult.bBlockingHit && HitResult.GetActor() == Candidate)
@@ -116,7 +118,9 @@ void UTargetingComponent::CalculateNewLockOnTarget(bool bToRight)
 	float MaxDot = -1.0f;
 	for (AActor* Candidate : TargetCandidates)
 	{
-		const FVector ToCandidate = UKismetMathLibrary::GetDirectionUnitVector(PawnOwner->GetActorLocation(), Candidate->GetActorLocation());
+		FVector CandidateLocation = Candidate->GetActorLocation();
+		CandidateLocation.Z = 0.0f;
+		const FVector ToCandidate = UKismetMathLibrary::GetDirectionUnitVector(PawnOwner->GetActorLocation(), CandidateLocation);
 		if (Candidate != TargetedActor)
 		{
 			const FVector Crossed = OwnerCamera->GetForwardVector().Cross(ToCandidate);
@@ -130,7 +134,7 @@ void UTargetingComponent::CalculateNewLockOnTarget(bool bToRight)
 					ActorsToIgnore.Add(TargetedActor);
 					UKismetSystemLibrary::SphereTraceSingle(this, OwnerCamera->GetComponentLocation(), Candidate->GetActorLocation(), 50.0f,
 															TraceTypeQuery1,
-															false, ActorsToIgnore, EDrawDebugTrace::ForOneFrame, HitResult, true);
+															false, ActorsToIgnore, EDrawDebugTrace::None, HitResult, true);
 					if (HitResult.bBlockingHit && HitResult.GetActor() == Candidate)
 					{
 						NewTargetedActor = Candidate;
